@@ -39,7 +39,7 @@ do
 		incode=TRUE
 	fi
 
-	if [ "$incode" = "TRUE" ] && ( echo $line | grep '^   ' ) 
+	if [ "$incode" = "TRUE" ] && ( echo $line | grep '^   ' > /dev/null ) 
 	then
 		echo $line | cut -c4- >> ${script}
 		looped=TRUE
