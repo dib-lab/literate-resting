@@ -1,7 +1,7 @@
 This is an initial stab at khmer acceptance testing, based on khmer
-protocols/eel pond.  To run, execute the following commands on
-ami-c17ec8a8.  Note that the branch of khmer under test is specified
-in mrnaseq/1-quality.txt.
+protocols/eel pond.  To run, execute the following commands on an AWS
+m1.xlarge machine running AMI ami-c17ec8a8.  Note that the branch of
+khmer under test is specified in mrnaseq/1-quality.txt.
 
 ---
 
