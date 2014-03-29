@@ -26,10 +26,14 @@ do
 
 		inshell=FALSE
 	fi
-	if [ "$inshell" = "TRUE" ] && [[ $(echo "$line" | cut -c-2) == "::" ]]
+	if [ "$inshell" = "TRUE" ] && [[ "$line" == "::" ]]
+	then
+		incode=TRUE
+	elif [ "$inshell" = "TRUE" ] && [[ "$line" == ".. ::" ]]
 	then
 		incode=TRUE
 	fi
+
 	if [ "$incode" = "TRUE" ] && ( echo $line | grep '^   ' ) 
 	then
 		echo $line | cut -c4- >> ${script}

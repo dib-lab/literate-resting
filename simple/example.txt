@@ -18,6 +18,14 @@ it executed.  Easy! Just don't put the ``::`` at the beginning of a line::
 
    rm FILE1
 
+If you want to put in code that doesn't appear in the documentation, but
+*does* get executed, put in a commented-out verbatim with ``.. ::`` and
+then indent lines as normal afterwards.
+
+.. ::
+
+   touch FILE3
+
 Let's turn off shell commands for a bit... with ``.. shell stop``
 
 .. shell stop
@@ -35,5 +43,5 @@ and go about our way.
 
 ::
 
-   touch FILE3
+   touch FILE4
    rm FILE1
