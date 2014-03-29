@@ -1,5 +1,7 @@
 # note: ignore circular dependency warnings.
 
+.SUFFIXES:
+
 all: example.html example.txt.sh
 
 example.txt.sh: ../scan.sh example.txt
