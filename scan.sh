@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Originally authored by Leigh Sheneman for the khmer-protocols
+# project.  Transferred w/o change to literate-resting project by
+# C. Titus Brown and updated thereafter as in the git log
+# (see: github.com/ged-lab/literate-resting)
+
 #set -x
 
 script=${1}.sh
