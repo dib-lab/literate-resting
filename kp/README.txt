@@ -1,5 +1,8 @@
-Mount snap-XXXX as /data-full; then run.
-
+mkdir /mnt/data
+ln -fs /mnt/data /data
+cd /data
+curl -O http://athyra.idyll.org/~t/mrnaseq-subset.tar
+tar xvf mrnaseq-subset.tar
 
 cd /root
 rm -fr literate-resting khmer-protocols
