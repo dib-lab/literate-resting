@@ -1,4 +1,47 @@
-touch FILE1
-touch FILE3
-touch FILE4
-rm FILE1
+Some simple examples
+====================
+
+Here is a simple example.  Start shell commands like so.
+``.. shell start``
+
+.. shell start
+
+Now, any commands after a ``^::`` will be recorded into a shell script.
+
+For example, this will create FILE1:
+::
+
+   touch FILE1
+
+In this next case, however, we want to say something verbatim without having
+it executed.  Easy! Just don't put the ``::`` at the beginning of a line::
+
+   rm FILE1
+
+If you want to put in code that doesn't appear in the documentation, but
+*does* get executed, put in a commented-out verbatim with ``.. ::`` and
+then indent lines as normal afterwards.
+
+.. ::
+
+   touch FILE3
+
+Let's turn off shell commands for a bit... with ``.. shell stop``
+
+.. shell stop
+
+Then these following commands will not be executed, even tho they are
+in a verbatim block with ``::`` starting at the beginning of the line:
+::
+
+   touch FILE2
+
+And, finally, we can turn shell commands back on with ``.. shell start``,
+and go about our way.
+
+.. shell start
+
+::
+
+   touch FILE4
+   rm FILE1
