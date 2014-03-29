@@ -1,7 +1,13 @@
 This is an initial stab at khmer acceptance testing, based on khmer
 protocols/eel pond.  To run, execute the following commands on an AWS
-m1.xlarge machine running AMI ami-c17ec8a8.  Note that the branch of
-khmer under test is specified in mrnaseq/1-quality.txt.
+m1.xlarge machine running AMI ami-c17ec8a8.
+
+Note that the branch of khmer under test is specified in
+mrnaseq/1-quality.txt in the khmer-protocols repository; CTB suggests
+that to run an acceptance test against a specific version of khmer, we
+create a new branch of khmer-protocols on github.com/ged-lab that
+specifies the right version in mrnaseq/1-quality.txt, and then put '-b
+branchname' in the clone command below.
 
 ---
 
@@ -14,7 +20,7 @@ tar xvf mrnaseq-subset.tar
 cd /root
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/ged-lab/literate-resting.git
-git clone https://github.com/ged-lab/khmer-protocols.git -b acceptance
+git clone https://github.com/ged-lab/khmer-protocols.git
 
 cd khmer-protocols/mrnaseq
 /root/literate-resting/scan.sh 1-quality.txt
