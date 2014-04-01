@@ -20,7 +20,7 @@ tar xvf mrnaseq-subset.tar
 cd /root
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/ged-lab/literate-resting.git
-git clone https://github.com/ged-lab/khmer-protocols.git
+git clone https://github.com/ged-lab/khmer-protocols.git -b release-test
 
 cd khmer-protocols/mrnaseq
 /root/literate-resting/scan.sh 1-quality.txt
