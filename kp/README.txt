@@ -11,6 +11,15 @@ branchname' in the clone command below.
 
 ---
 
+Run this on an Ubuntu 12.04 LTS system as root:
+
+apt-get update
+apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
+        pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
+        sysstat && shutdown -r now
+
+shutdown -r now
+
 mkdir /mnt/data
 ln -fs /mnt/data /data
 cd /data
@@ -20,16 +29,22 @@ tar xvf mrnaseq-subset.tar
 cd /root
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/ged-lab/literate-resting.git
-git clone https://github.com/ged-lab/khmer-protocols.git -b release-test
+#git clone https://github.com/ged-lab/khmer-protocols.git -b release-test
+git clone https://github.com/ged-lab/khmer-protocols.git -b bench
 
 cd khmer-protocols/mrnaseq
-/root/literate-resting/scan.sh 1-quality.txt
-/root/literate-resting/scan.sh 2-diginorm.txt
-/root/literate-resting/scan.sh 3-big-assembly.txt
 
-bash 1-quality.txt.sh
-bash 2-diginorm.txt.sh
-bash 3-big-assembly.txt.sh
+for i in [1-8]-*.txt
+do
+   bash /root/literate-resting/scan.sh $i
+done
+
+### START MONITORING
+
+for i in [1-8]-*.txt.sh
+do
+   bash $i
+done
 
 ---
 
@@ -50,3 +65,9 @@ SECOND the command ::
    grep "zinc transporter" trinity.x.mouse /mnt/blast/trinity.x.mouse
 
 should show more than 20 matches.
+
+---
+
+::
+
+   sar -u -r -d -o xxx 1
