@@ -51,7 +51,7 @@ done
 
 for i in [1-8]-*.txt.sh
 do
-   bash $i
+   bash -e $i
 done
 
 ---
@@ -59,7 +59,7 @@ done
 Successful completion can be checked by hand in two ways, after running::
 
    bash /root/literate-resting/scan.sh acceptance-3-big-assembly.txt
-   bash acceptance-3-big-assembly.txt.sh
+   bash -e acceptance-3-big-assembly.txt.sh
 
 FIRST, you should see stats output from this command::
 
