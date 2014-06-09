@@ -20,7 +20,7 @@ curl -O http://athyra.idyll.org/~mahmoud4/R2-extract.fastq.gz
 cd /mnt
 mkdir work
 cd work
-ln -fs /mnt/data/*.fq .
+ln -fs /mnt/data/*.fastq.gz .
 
 cd /usr/local/share
 git clone https://github.com/ged-lab/khmer.git
