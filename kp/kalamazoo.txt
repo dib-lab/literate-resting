@@ -16,8 +16,6 @@ cd data
 
 curl -O http://athyra.idyll.org/~mahmoud4/R1-extract.fastq.gz
 curl -O http://athyra.idyll.org/~mahmoud4/R2-extract.fastq.gz
-gunzip -c R1-extract.fastq.gz > SRR606249-extract_1.fq
-gunzip -c R2-extract.fastq.gz > SRR606249-extract_2.fq
 
 cd /mnt
 mkdir work
