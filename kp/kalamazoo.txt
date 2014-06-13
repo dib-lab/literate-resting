@@ -1,38 +1,27 @@
 apt-get update
-apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
-           pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
-           sysstat
+apt-get -y install screen git curl gcc make g++ python-dev unzip \
+           default-jre pkg-config libncurses5-dev r-base-core \
+           r-cran-gplots python-matplotlib sysstat
 
-## reboot
+shutdown -r now
+
+## wait for reboot
+
+sudo bash
 
 cd /root
 rm -fr literate-resting khmer-protocols
 git clone https://github.com/ged-lab/literate-resting.git
 git clone https://github.com/ged-lab/khmer-protocols.git
 
-cd /mnt/
-mkdir data
-cd data
+mkdir /mnt/data
+cd /mnt/data
 
 curl -O http://athyra.idyll.org/~mahmoud4/R1-extract.fastq.gz
 curl -O http://athyra.idyll.org/~mahmoud4/R2-extract.fastq.gz
 
-cd /mnt
-mkdir work
-cd work
-ln -fs /mnt/data/*.fastq.gz .
-
-cd /usr/local/share
-git clone https://github.com/ged-lab/khmer.git
-cd khmer
-git checkout v1.0.1
-git merge origin/cs/sweepfix
-make install
-
 cd /root/khmer-protocols/metagenomics
-git pull https://github.com/SherineAwad/khmer-protocols.git Metagenome
-
-for i in [1-3]-*.txt
+for i in [1-5]-*.txt
 do
    bash /root/literate-resting/scan.sh $i
 done
@@ -43,5 +32,3 @@ for i in [1-3]-*.txt.sh
 do
    bash $i
 done
-
-
