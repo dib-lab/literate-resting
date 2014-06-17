@@ -1,3 +1,5 @@
+Run this on an Ubuntu 14.04 LTS system as root:
+
 apt-get update
 apt-get -y install screen git curl gcc make g++ python-dev unzip \
            default-jre pkg-config libncurses5-dev r-base-core \

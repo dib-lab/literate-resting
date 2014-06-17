@@ -19,7 +19,7 @@ branchname' in the clone command below.
 
 ---
 
-Run this on an Ubuntu 12.04 LTS system as root:
+Run this on an Ubuntu 14.04 LTS system as root:
 
 apt-get update
 apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
