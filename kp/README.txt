@@ -50,7 +50,7 @@ done
 
 for i in [1-8]-*.txt.sh
 do
-   bash -e $i
+   bash $i
 done
 
 ---
