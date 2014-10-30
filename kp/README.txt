@@ -24,7 +24,7 @@ Run this on an Ubuntu 14.04 LTS system as root:
 apt-get update
 apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
         pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
-        sysstat && shutdown -r now
+        sysstat vim-nox && apt-get dist-upgrade -y && shutdown -r now
 
 ## After reboot:
 
@@ -46,7 +46,7 @@ do
    bash /root/literate-resting/scan.sh $i
 done
 
-### START MONITORING
+### START MONITORING (in another SSH session)
 
 for i in [1-8]-*.txt.sh
 do
@@ -72,7 +72,7 @@ that looks roughly like this::
 
 SECOND the command ::
 
-   grep "zinc transporter" trinity.x.mouse /mnt/blast/trinity.x.mouse
+   grep "zinc transporter" /mnt/blast/trinity.x.mouse
 
 should show more than 20 matches.
 
