@@ -1,6 +1,8 @@
 This is an initial stab at khmer acceptance testing, based on khmer
 protocols/eel pond.  To run, execute the following commands on an AWS
-m1.xlarge machine running the ubuntu-trusty-14.04-amd64-server-* Amazon Machine Image (AMI).
+m1.xlarge machine running the ubuntu-trusty-14.04-amd64-server-* 
+Amazon Machine Image (AMI) which is one of the featured AMIs. This was
+last tested using "ubuntu-trusty-14.04-amd64-server-20140927 (ami-98aa1cf0)"
 
 For more info on khmer, see github.com/ged-lab/khmer, and
 khmer.readthedocs.org/.
