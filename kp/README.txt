@@ -1,6 +1,6 @@
 This is an initial stab at khmer acceptance testing, based on khmer
 protocols/eel pond.  To run, execute the following commands on an AWS
-m1.xlarge machine running AMI ami-c17ec8a8.
+m1.xlarge machine running the ubuntu-trusty-14.04-amd64-server-* Amazon Machine Image (AMI).
 
 For more info on khmer, see github.com/ged-lab/khmer, and
 khmer.readthedocs.org/.
@@ -21,13 +21,14 @@ branchname' in the clone command below.
 
 Run this on an Ubuntu 14.04 LTS system as root:
 
-apt-get update
-apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
+sudo apt-get update
+sudo apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
         pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
-        sysstat vim-nox && apt-get dist-upgrade -y && shutdown -r now
+        sysstat vim-nox && sudo apt-get dist-upgrade -y && sudo shutdown -r now
 
 ## After reboot:
 
+sudo su
 mkdir /mnt/data
 ln -fs /mnt/data /data
 cd /data
