@@ -31,6 +31,7 @@ sudo apt-get -y install screen git curl gcc make g++ python-dev unzip default-jr
 ## After reboot:
 
 sudo su
+screen
 mkdir /mnt/data
 ln -fs /mnt/data /data
 cd /data
@@ -53,7 +54,7 @@ done
 
 for i in [1-8]-*.txt.sh
 do
-   bash $i
+   bash $i |& tee ${i%%.txt.sh}.out
 done
 
 ---
