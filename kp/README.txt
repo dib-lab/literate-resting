@@ -45,6 +45,8 @@ git clone https://github.com/ged-lab/khmer-protocols.git -b acceptance
 
 cd khmer-protocols/mrnaseq
 
+vim 1-quality.txt # change version number on line 49 to match the release to test
+
 for i in [1-8]-*.txt
 do
    bash /root/literate-resting/scan.sh $i
