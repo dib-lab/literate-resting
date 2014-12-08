@@ -1,6 +1,8 @@
 This is an initial stab at khmer acceptance testing, based on khmer
 protocols/eel pond.  To run, execute the following commands on an AWS
-m1.xlarge machine running AMI ami-c17ec8a8.
+m1.xlarge machine running the ubuntu-trusty-14.04-amd64-server-* 
+Amazon Machine Image (AMI) which is one of the featured AMIs. This was
+last tested using "ubuntu-trusty-14.04-amd64-server-20140927 (ami-98aa1cf0)"
 
 For more info on khmer, see github.com/ged-lab/khmer, and
 khmer.readthedocs.org/.
@@ -21,13 +23,15 @@ branchname' in the clone command below.
 
 Run this on an Ubuntu 14.04 LTS system as root:
 
-apt-get update
-apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
+sudo apt-get update
+sudo apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
         pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
-        sysstat && shutdown -r now
+        sysstat vim-nox && sudo apt-get dist-upgrade -y && sudo shutdown -r now
 
 ## After reboot:
 
+sudo su
+screen
 mkdir /mnt/data
 ln -fs /mnt/data /data
 cd /data
@@ -41,16 +45,18 @@ git clone https://github.com/ged-lab/khmer-protocols.git -b acceptance
 
 cd khmer-protocols/mrnaseq
 
+vim 1-quality.txt # change version number on line 49 to match the release to test
+
 for i in [1-8]-*.txt
 do
    bash /root/literate-resting/scan.sh $i
 done
 
-### START MONITORING
+### START MONITORING (in another SSH session)
 
 for i in [1-8]-*.txt.sh
 do
-   bash $i
+   bash $i |& tee ${i%%.txt.sh}.out
 done
 
 ---
@@ -72,7 +78,7 @@ that looks roughly like this::
 
 SECOND the command ::
 
-   grep "zinc transporter" trinity.x.mouse /mnt/blast/trinity.x.mouse
+   grep "zinc transporter" /mnt/blast/trinity.x.mouse
 
 should show more than 20 matches.
 
