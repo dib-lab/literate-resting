@@ -24,7 +24,7 @@ branchname' in the clone command below.
 Run this on an Ubuntu 14.04 LTS system as root:
 
 sudo apt-get update
-sudo apt-get -y install screen git curl gcc make g++ python-dev unzip default-jre \
+sudo apt-get -y install screen git curl gcc make g++ python-dev unzip openjdk-7-jdk \
         pkg-config libncurses5-dev r-base-core r-cran-gplots python-matplotlib\
         sysstat vim-nox && sudo apt-get dist-upgrade -y && sudo shutdown -r now
 
