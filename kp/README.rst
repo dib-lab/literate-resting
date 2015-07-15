@@ -4,10 +4,10 @@ m1.xlarge machine running the ubuntu-trusty-14.04-amd64-server-*
 Amazon Machine Image (AMI) which is one of the featured AMIs. This was
 last tested using "ubuntu-trusty-14.04-amd64-server-20140927 (ami-98aa1cf0)"
 
-For more info on khmer, see github.com/ged-lab/khmer, and
+For more info on khmer, see github.com/dib-lab/khmer, and
 khmer.readthedocs.org/.
 
-For more info on khmer-protocols, see github.com/ged-lab/khmer-protocols,
+For more info on khmer-protocols, see github.com/dib-lab/khmer-protocols,
 and khmer-protocols.readthedocs.org/.
 
 ---
@@ -15,7 +15,7 @@ and khmer-protocols.readthedocs.org/.
 Note that the branch of khmer under test is specified in
 mrnaseq/1-quality.txt in the khmer-protocols repository; CTB suggests
 that to run an acceptance test against a specific version of khmer, we
-create a new branch of khmer-protocols on github.com/ged-lab that
+create a new branch of khmer-protocols on github.com/dib-lab that
 specifies the right version in mrnaseq/1-quality.txt, and then put '-b
 branchname' in the clone command below.
 
@@ -28,8 +28,8 @@ branchname' in the clone command below.
    
    cd /home/ubuntu
    rm -fr literate-resting khmer-protocols
-   git clone https://github.com/ged-lab/literate-resting.git
-   git clone https://github.com/ged-lab/khmer-protocols.git -b ctb
+   git clone https://github.com/dib-lab/literate-resting.git
+   git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
    
    cd khmer-protocols/mrnaseq
    
