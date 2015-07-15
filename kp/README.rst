@@ -21,36 +21,38 @@ branchname' in the clone command below.
 
 ---
 
-sudo chmod a+rwxt /mnt
-sudo apt-get -y install git-core
+::
 
-cd /home/ubuntu
-rm -fr literate-resting khmer-protocols
-git clone https://github.com/ged-lab/literate-resting.git
-git clone https://github.com/ged-lab/khmer-protocols.git -b ctb
-
-cd khmer-protocols/mrnaseq
-
-## vim 1-quality.txt # change version number on line 49 to match the release to test
-
-for i in [1-3]-*.rst
-do
-   /home/ubuntu/literate-resting/scan.py $i
-done
-
-### START MONITORING (in another SSH session)
-
-for i in [1-3]-*.rst.sh
-do
-   bash $i |& tee ${i%%.txt.sh}.out
-done
+   sudo chmod a+rwxt /mnt
+   sudo apt-get -y install git-core
+   
+   cd /home/ubuntu
+   rm -fr literate-resting khmer-protocols
+   git clone https://github.com/ged-lab/literate-resting.git
+   git clone https://github.com/ged-lab/khmer-protocols.git -b ctb
+   
+   cd khmer-protocols/mrnaseq
+   
+   ## vim 1-quality.rst # change version number on line 49 to match the release to test
+   
+   for i in [1-3]-*.rst
+   do
+      /home/ubuntu/literate-resting/scan.py $i
+   done
+   
+   ### START MONITORING (in another SSH session)
+   
+   for i in [1-3]-*.rst.sh
+   do
+      bash $i |& tee ${i%%.rst.sh}.out
+   done
 
 ---
 
 Successful completion can be checked by hand in two ways, after running::
 
-   bash /root/literate-resting/scan.sh acceptance-3-big-assembly.txt
-   bash -e acceptance-3-big-assembly.txt.sh
+   /root/literate-resting/scan.py acceptance-3-big-assembly.rst
+   bash -e acceptance-3-big-assembly.rst.sh
 
 FIRST, you should see stats output from this command::
 
