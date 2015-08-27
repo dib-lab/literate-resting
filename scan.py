@@ -3,10 +3,12 @@ import sys
 import argparse
 import os.path
 
-# Originally authored by Leigh Sheneman for the khmer-protocols
-# project.  Transferred w/o change to literate-resting project by
-# C. Titus Brown and updated thereafter as in the git log
-# (see: github.com/dib-lab/literate-resting)
+# Originally designed by CTB, Michael Crusoe, and Leigh Sheneman for
+# the khmer-protocols project.  An initial shell script implementation was
+# implemented by Leigh, and then transferred w/o change to
+# literate-resting project by C. Titus Brown and updated thereafter as
+# in the git log (see: github.com/dib-lab/literate-resting).  This is a
+# Python rewrite.
 
 
 def parse_commands(fp, sourcename, verbose=False):

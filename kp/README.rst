@@ -23,7 +23,6 @@ branchname' in the clone command below.
 
 ::
 
-   set -e
    sudo chmod a+rwxt /mnt
    sudo apt-get -y install git-core
    

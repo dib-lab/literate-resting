@@ -1,0 +1,28 @@
+First::
+
+   sudo chmod a+rwxt /mnt
+   sudo apt-get -y install git-core
+
+   cd /home/ubuntu
+   rm -fr literate-resting khmer-protocols
+   git clone https://github.com/dib-lab/literate-resting.git
+   git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
+
+   cd khmer-protocols/metagenomics
+
+Then::
+
+   cd /root/khmer-protocols/metagenomics
+   for i in [1-5]-*.txt
+   do
+      bash /root/literate-resting/scan.sh $i
+   done
+
+### START MONITORING HERE ###
+
+And finally::
+
+   for i in [1-5]-*.txt.sh
+   do
+      bash $i
+   done
