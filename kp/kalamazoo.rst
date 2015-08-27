@@ -14,7 +14,7 @@ Then, the khmer protocols stuff::
 
 Then::
 
-   for i in [1-3]-*.rst
+   for i in [1-4]-*.rst
    do
       /home/ubuntu/literate-resting/scan.py $i
    done
@@ -23,7 +23,7 @@ Then::
 
 And finally::
 
-   for i in [1-5]-*.txt.sh
+   for i in [1-4]-*.txt.sh
    do
       bash $i
    done
