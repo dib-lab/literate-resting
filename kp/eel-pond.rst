@@ -21,10 +21,12 @@ branchname' in the clone command below.
 
 ---
 
-::
+Do that sudo you do so well::
 
    sudo chmod a+rwxt /mnt
    sudo apt-get -y install git-core
+
+Next, ::
    
    cd /home/ubuntu
    rm -fr literate-resting khmer-protocols

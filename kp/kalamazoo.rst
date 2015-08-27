@@ -1,7 +1,9 @@
-First::
+First, the sudo::
 
    sudo chmod a+rwxt /mnt
    sudo apt-get -y install git-core
+
+Then, the khmer protocols stuff::
 
    cd /home/ubuntu
    rm -fr literate-resting khmer-protocols
