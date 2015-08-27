@@ -23,7 +23,7 @@ Then::
 
 And finally::
 
-   for i in [1-4]-*.txt.sh
+   for i in [1-4]-*.rst.sh
    do
       bash $i
    done
