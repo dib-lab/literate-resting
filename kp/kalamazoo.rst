@@ -14,12 +14,11 @@ Then, the khmer protocols stuff::
 
 Then::
 
-   cd /root/khmer-protocols/metagenomics
-   for i in [1-5]-*.txt
+   for i in [1-3]-*.rst
    do
-      bash /root/literate-resting/scan.sh $i
+      /home/ubuntu/literate-resting/scan.py $i
    done
-
+   
 ### START MONITORING HERE ###
 
 And finally::
