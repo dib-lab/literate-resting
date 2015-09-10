@@ -39,14 +39,14 @@ Next, ::
    
    for i in [1-3]-*.rst
    do
-      /home/ubuntu/literate-resting/scan.py $i
+      /home/ubuntu/literate-resting/scan.py $i || break
    done
    
    ### START MONITORING (in another SSH session)
    
    for i in [1-3]-*.rst.sh
    do
-      bash $i |& tee ${i%%.rst.sh}.out
+      bash $i |& tee ${i%%.rst.sh}.out || break
    done
 
 ---
