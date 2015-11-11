@@ -2,7 +2,7 @@ on local::
 
    docker create -v /mnt --name kp-test-data ubuntu:14.04 /bin/true
 
-   docker run --volumes-from kp-test-data -it ubuntu:14.04 bash
+   docker run --rm --volumes-from kp-test-data -it ubuntu:14.04 bash
 
 on docker machine::
 

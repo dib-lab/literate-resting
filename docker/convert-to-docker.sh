@@ -18,7 +18,7 @@ do
 FROM kp-base
 ${DOCKERCMDS}
 COPY $i.sh /home
-#ENTRYPOINT ["/home/$i.sh"]
+ENTRYPOINT ["/home/$i.sh"]
 EOF
 
   echo docker build -t kp/$(basename $i .rst) ${DIR} >> docker-build.sh
