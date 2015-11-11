@@ -11,7 +11,7 @@ import os.path
 # Python rewrite.
 
 
-def parse_commands(fp, sourcename, verbose=False):
+def parse_commands(fp, sourcename, verbose=False, show_hidden=True):
     inshell = False
     incode = False
 
@@ -27,25 +27,35 @@ def parse_commands(fp, sourcename, verbose=False):
         elif inshell:
             if verbose:
                 print 'examine', sourcename, line_no, incode, (rawline,)
-            if line.startswith('::') or line.startswith('.. ::'):
+
+            if line.startswith('::'):
                 yield '\n### code block at %s:%d\n\n' % (sourcename, line_no)
                 incode = True
+                hidden = False
+                continue
+            elif line.startswith('.. ::') and show_hidden:
+                yield '\n### hidden code block at %s:%d\n\n' % (sourcename,
+                                                                line_no)
+                incode = True
+                hidden = True
                 continue
             elif line and not line.startswith('   '):
                 incode = False
+                hidden = False
                 continue
 
         if inshell and incode:
             if verbose:
                 print 'extract', sourcename, line_no, (rawline,)
-            yield rawline[3:]
+            if not hidden or show_hidden:
+                yield rawline[3:]
 
 
-def extract_commands(inpfile, output_fp, verbose=False):
+def extract_commands(inpfile, output_fp, verbose=False, show_hidden=True):
     fp = open(inpfile)
 
     emitted = 0
-    for line in parse_commands(fp, inpfile, verbose):
+    for line in parse_commands(fp, inpfile, verbose, show_hidden):
         output_fp.write(line)
         emitted += 1
 
@@ -58,12 +68,21 @@ def main():
     parser.add_argument('rst_files', nargs='+')
     parser.add_argument('-v', '--verbose', default=False,
                         action='store_true')
+    parser.add_argument('-x', '--hide-hidden', default=False,
+                        action='store_true')
+    parser.add_argument('-o', '--output', metavar="output",
+                        type=argparse.FileType('wb'),
+                        default=None, dest='output')
     args = parser.parse_args()
 
     for filename in args.rst_files:
-        output_name = os.path.basename(filename) + '.sh'
-        output = open(output_name, 'w')
-        extract_commands(filename, output, args.verbose)
+        if not args.output:
+            output_name = os.path.basename(filename) + '.sh'
+            output = open(output_name, 'w')
+        else:
+            output = args.output
+
+        extract_commands(filename, output, args.verbose, not args.hide_hidden)
 
 if __name__ == '__main__':
     main()
