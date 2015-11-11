@@ -75,10 +75,14 @@ def main():
                         default=None, dest='output')
     args = parser.parse_args()
 
+    if args.output:
+        args.output.write('#! /bin/bash\n')
+
     for filename in args.rst_files:
         if not args.output:
             output_name = os.path.basename(filename) + '.sh'
             output = open(output_name, 'w')
+            output.write('#! /bin/bash\n')
         else:
             output = args.output
 
