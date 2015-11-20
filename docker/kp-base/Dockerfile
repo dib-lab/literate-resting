@@ -1,3 +1,4 @@
+# image: diblab/kp-base
 FROM ubuntu:14.04
 RUN apt-get update && \
     apt-get -y install screen git curl gcc make g++ python-dev unzip \
