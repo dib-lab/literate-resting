@@ -37,4 +37,7 @@ Run the three khmer-protocols docker images
      docker run --volumes-from kp-test-data -it eel-pond/3-big-assembly:ctb
 
 Assembly will be on 'kp-test-data' data volume under
-/mnt/work/trinity_out_dir/Trinity.fasta.
+/mnt/work/trinity_out_dir/Trinity.fasta; you can access it like so::
+
+     docker cp kp-test-data:/mnt/work/trinity_out_dir/Trinity.fasta .
+
