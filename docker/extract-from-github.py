@@ -7,6 +7,8 @@ import tempfile
 import subprocess
 import os
 import glob
+import sys
+sys.path.insert('/Users/t/dev/literate-resting')
 
 def parse_github_url(url):
     o = urlparse.urlparse(url)

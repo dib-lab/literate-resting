@@ -1,3 +1,4 @@
 *.html
 *~
 simple/example.txt.sh
+*.pyc
