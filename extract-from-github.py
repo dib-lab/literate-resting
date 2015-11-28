@@ -194,6 +194,8 @@ def main():
     # the config from the cloned repo, which we get below. but it's fun.
     print 'loading config from', org, repo, branch, location
     conf = load_config_from_github(org, repo, branch, location)
+    if branch == 'master':
+        docker_branch = 'latest'
 
     workdir = tempfile.mkdtemp()
 

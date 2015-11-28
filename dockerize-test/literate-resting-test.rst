@@ -2,6 +2,14 @@
 A test for dockerizing protocols via literate-resting
 =====================================================
 
+To run this, do::
+
+   ./extract-from-github.py https://github.com/dib-lab/literate-resting/tree/master/dockerize-test/ -o test
+   cd test && ./build.sh
+
+from within the root directory of the `literate-resting repo
+<https://github.com/dib-lab/literate-resting/>`__.
+
 Adding commands to the Dockerfile
 ---------------------------------
 
