@@ -21,7 +21,7 @@ Adding commands to the Dockerfile
 .. docker::
 
    # this comment will end up in the Dockerfile used to build the docker
-   # containers; you could also put commands here :)
+   # containers; you could also put commands here.
 
 
 Adding commands to the Docker CMD script
