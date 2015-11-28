@@ -29,21 +29,22 @@ Adding commands to the Docker CMD script
 
 .. shell start
 
-The following commands (including the invisible ones; see the source)
-will be added to the Docker container's CMD script,
-``literate-resting-test.rst.sh``.
+The following command will be added to the Docker container's CMD
+script, ``literate-resting-test.rst.sh``.  ::
+
+   echo 'Howdy, there.'
+
+Hidden commands are *not* added
+-------------------------------
+
+Invisible commands (used in testing) are *not* added to the Docker container:
 
 .. ::
 
    echo 'Hello, world'
 
-This command:
-::
-
-   echo 'Howdy, there.'
-
-Displaying commands that are *not* added to the CMD script
-----------------------------------------------------------
+Visible commands that are *not* added to the CMD script
+-------------------------------------------------------
 
 The following command is *visible* in the tutorial but is *not* added to
 the CMD script::
