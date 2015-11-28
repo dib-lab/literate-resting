@@ -195,7 +195,7 @@ def main():
     print 'loading config from', org, repo, branch, location
     conf = load_config_from_github(org, repo, branch, location)
     if branch == 'master':
-        docker_branch = 'latest'
+        docker_tag = 'latest'
 
     workdir = tempfile.mkdtemp()
 
@@ -244,7 +244,7 @@ def main():
     build_fp = open(build_sh, 'w')
     print >>build_fp, 'set -x'
     for ident, dirname in output_list:
-        tagname = '{}/{}:{}'.format(conf['prefix'], ident, branch)
+        tagname = '{}/{}:{}'.format(conf['prefix'], ident, docker_tag)
         print >>build_fp, 'docker build -t {} {}'.format(tagname, dirname)
     build_fp.close()
 

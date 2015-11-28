@@ -10,6 +10,9 @@ To run this, do::
 from within the root directory of the `literate-resting repo
 <https://github.com/dib-lab/literate-resting/>`__.
 
+You should end up with a docker image named ``diblab/literate-resting-test``
+
+
 Adding commands to the Dockerfile
 ---------------------------------
 
@@ -17,12 +20,14 @@ Adding commands to the Dockerfile
 
 .. docker::
 
-   # this command will end up in the Dockerfile used to build the docker
-   # containers.
+   # this comment will end up in the Dockerfile used to build the docker
+   # containers; you could also put commands here :)
 
 
 Adding commands to the Docker CMD script
 ----------------------------------------
+
+.. shell start
 
 The following commands (including the invisible ones; see the source)
 will be added to the Docker container's CMD script,
@@ -44,3 +49,5 @@ The following command is *visible* in the tutorial but is *not* added to
 the CMD script::
 
    echo 'No dice, guv.'
+
+.. shell stop
