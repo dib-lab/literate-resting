@@ -32,12 +32,17 @@ Run the three khmer-protocols docker images
 
 ::
 
-     docker run --volumes-from kp-test-data -it eel-pond/1-quality:ctb
-     docker run --volumes-from kp-test-data -it eel-pond/2-diginorm:ctb
-     docker run --volumes-from kp-test-data -it eel-pond/3-big-assembly:ctb
+     docker run --volumes-from kp-test-data -it eelpond/1-quality:ctb
+     docker run --volumes-from kp-test-data -it eelpond/2-diginorm:ctb
+     docker run --volumes-from kp-test-data -it eelpond/3-big-assembly:ctb
 
 Assembly will be on 'kp-test-data' data volume under
 /mnt/work/trinity_out_dir/Trinity.fasta; you can access it like so::
 
      docker cp kp-test-data:/mnt/work/trinity_out_dir/Trinity.fasta .
 
+TODO
+----
+
+Put in git commit ids
+Logfiles for executing containers
