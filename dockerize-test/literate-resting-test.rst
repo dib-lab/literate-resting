@@ -30,7 +30,8 @@ Adding commands to the Docker CMD script
 .. shell start
 
 The following command will be added to the Docker container's CMD
-script, ``literate-resting-test.rst.sh``.  ::
+script, ``literate-resting-test.rst.sh``.
+::
 
    echo 'Howdy, there.'
 
