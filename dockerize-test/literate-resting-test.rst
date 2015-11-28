@@ -40,7 +40,7 @@ will be added to the Docker container's CMD script,
 This command:
 ::
 
-   echo 'Howdy, there.
+   echo 'Howdy, there.'
 
 Displaying commands that are *not* added to the CMD script
 ----------------------------------------------------------
