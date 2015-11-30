@@ -33,7 +33,7 @@ The following command will be added to the Docker container's CMD
 script, ``literate-resting-test.rst.sh``.
 ::
 
-   echo 'Howdy, there.'
+   echo 'Howdy, there, J & L'
 
 Hidden commands are *not* added
 -------------------------------
