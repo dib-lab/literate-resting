@@ -5,3 +5,4 @@ docker-machine create --driver amazonec2 --amazonec2-access-key ${AWS_KEY} --ama
 #   docker-machine regenerate-certs aws04
 #   eval $(docker-machine env aws04)
 
+#   aws ec2 describe-subnets

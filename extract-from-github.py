@@ -196,6 +196,8 @@ def main():
     conf = load_config_from_github(org, repo, branch, location)
     if branch == 'master':
         docker_tag = 'latest'
+    else:
+        docker_tag = branch
 
     workdir = tempfile.mkdtemp()
 

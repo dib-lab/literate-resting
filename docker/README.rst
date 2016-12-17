@@ -7,8 +7,8 @@ Create docker containers from khmer-protocols ctb branch
    cd ./output/
    bash build.sh
 
-This will create docker images 'eel-pond/1-quality:ctb', etc. ('ctb' from
-the branch, 'eel-pond' from literate-resting.json in the mrnaseq/ subdir,
+This will create docker images 'eelpond/1-quality:ctb', etc. ('ctb' from
+the branch, 'eelpond' from literate-resting.json in the mrnaseq/ subdir,
 '1-quality' from the .rst filename.)
 
 Configure data volumes
@@ -46,3 +46,8 @@ TODO
 
 Put in git commit ids
 Logfiles for executing containers
+
+::
+
+   docker run --volumes-from nema-data -v /mnt:/mnt/data -d \
+          eelpond/1-quality:ctb
