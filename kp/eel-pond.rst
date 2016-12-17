@@ -23,54 +23,32 @@ branchname' in the clone command below.
 
 Do that sudo you do so well::
 
-   sudo chmod a+rwxt /mnt
-   sudo apt-get -y install git-core
+   sudo apt-get update && sudo apt-get install -y git-core
 
 Next, ::
    
    cd /home/ubuntu
-   rm -fr literate-resting khmer-protocols
+   rm -fr literate-resting eel-pond
    git clone https://github.com/dib-lab/literate-resting.git
-   git clone https://github.com/dib-lab/khmer-protocols.git -b ctb
+   git clone https://github.com/dib-lab/eel-pond.git -b literate-resting
    
-   cd khmer-protocols/mrnaseq
+   cd eel-pond
    
    ## vim 1-quality.rst # change version number on line 49 to match the release to test
-   
+
+   ~/literate-resting/scan.py 0-install-aws.rst
    for i in [1-3]-*.rst
    do
       /home/ubuntu/literate-resting/scan.py $i || break
    done
    
    ### START MONITORING (in another SSH session)
-   
+
+   bash 0-install-aws.rst.sh
    for i in [1-3]-*.rst.sh
    do
       bash $i |& tee ${i%%.rst.sh}.out || break
    done
-
----
-
-Successful completion can be checked by hand in two ways, after running::
-
-   /root/literate-resting/scan.py acceptance-3-big-assembly.rst
-   bash -e acceptance-3-big-assembly.rst.sh
-
-FIRST, you should see stats output from this command::
-
-   /usr/local/share/khmer/sandbox/assemstats3.py 500 /mnt/work/trinity_out_dir/Trinity.fasta
-
-that looks roughly like this::
-
-   ** cutoff: 500
-   N       sum     max     filename
-   76      134259  4452    /mnt/work/trinity_out_dir/Trinity.fasta
-
-SECOND the command ::
-
-   grep "zinc transporter" /mnt/blast/trinity.x.mouse
-
-should show more than 20 matches.
 
 ---
 
