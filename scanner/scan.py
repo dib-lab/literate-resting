@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 
 # Originally designed by CTB, Michael Crusoe, and Leigh Sheneman for
@@ -23,7 +24,7 @@ def parse_commands(fp, sourcename, verbose=False, show_hidden=True):
             continue
         elif inshell:
             if verbose:
-                print 'examine', sourcename, line_no, incode, (rawline,)
+                print('examine', sourcename, line_no, incode, (rawline,))
 
             if line.startswith('::'):
                 yield '\n### code block at %s:%d\n\n' % (sourcename, line_no)
@@ -43,7 +44,7 @@ def parse_commands(fp, sourcename, verbose=False, show_hidden=True):
 
         if inshell and incode:
             if verbose:
-                print 'extract', sourcename, line_no, (rawline,)
+                print('extract', sourcename, line_no, (rawline,))
             if not hidden or show_hidden:
                 yield rawline[3:]
 
@@ -56,7 +57,4 @@ def extract_commands(inpfile, output_fp, verbose=False, show_hidden=True):
         output_fp.write(line)
         emitted += 1
 
-    print >>sys.stderr, "Extracted %d lines from %s" % (emitted,
-                                                        inpfile)
-
-
+    print("Extracted %d lines from %s" % (emitted, inpfile), file=sys.stderr)
